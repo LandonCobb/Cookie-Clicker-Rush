@@ -26,7 +26,7 @@ public class Multipliers {
     //timer multiplier/adder
     public void bleedClick(){
         Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 //TODO cancel timer at certain point
