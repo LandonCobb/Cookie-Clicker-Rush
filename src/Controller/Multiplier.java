@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Multipliers {
+public class Multiplier {
     private int multValue;
     Click click = new Click();
 
