@@ -19,7 +19,7 @@ public class CookieDevourer extends Character{
             lastAttack = lastAttack + getAttack();
             loop--;
         }
-        System.out.println("The " + getName() + " went on a rampage and hit you multiple times you took: " + lastAttack + " damage!");
+        System.out.println("The " + getName() + " went on a rampage and threw nasty insults at you! You took: " + lastAttack + " damage!");
         return lastAttack;
     }
     /////////////////////////////////////////////////
