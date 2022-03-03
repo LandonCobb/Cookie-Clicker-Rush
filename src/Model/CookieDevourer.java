@@ -1,8 +1,11 @@
 package Model;
 
+import View.Input;
+
 import java.util.Random;
 
 public class CookieDevourer extends Character{
+    Input i = new Input();
     ////////////////////////////////////////////////////////////////
     public CookieDevourer(String name, int hp, int attack){
         super.setName(name);
@@ -19,7 +22,7 @@ public class CookieDevourer extends Character{
             lastAttack = lastAttack + getAttack();
             loop--;
         }
-        System.out.println("The " + getName() + " went on a rampage and threw nasty insults at you! You took: " + lastAttack + " damage!");
+        i.print("The " + getName() + " went on a rampage and threw nasty insults at you! You took: " + lastAttack + " damage!");
         return lastAttack;
     }
     /////////////////////////////////////////////////
