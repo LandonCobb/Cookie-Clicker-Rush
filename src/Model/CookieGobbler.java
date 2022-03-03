@@ -1,10 +1,13 @@
 package Model;
 
+import View.Input;
+
 import java.util.Random;
 
 public class CookieGobbler extends Character{
     ///////////////////////////////////////////////////////////////////////
     int healCounter = 0;
+    Input i = new Input();
     ///////////////////////////////////////////////////////////////////////
     public CookieGobbler(String name, int hp, int attack){
         super.setName(name);
@@ -18,13 +21,13 @@ public class CookieGobbler extends Character{
             int hp = getHp() + cookie;
             setHp(hp);
             healCounter++;
-            System.out.println("the Horrible monster found " + cookie + " cookies running about and ate them! " + getName() + "healed for:" + cookie); //need in view to do system.out
+            i.print("the Horrible monster found " + cookie + " cookies running about and ate them! " + getName() + "healed for:" + cookie);
         }
         if(cookie == 0){
-            System.out.println("the monster tried to grab a lone cookie to eat but it was to fast for him");
+            i.print("the monster tried to grab a lone cookie to eat but it was to fast for him");
         }
         else{
-            System.out.println("The monster tried to stuff cookies into his mouth but its too full to eat another");
+            i.print("The monster tried to stuff cookies into his mouth but its too full to eat another");
         }
     }
     ////////////////////////////////////////////////////////////

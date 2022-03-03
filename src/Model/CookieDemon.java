@@ -1,7 +1,9 @@
 package Model;
 
-public class CookieDemon extends Character{
+import View.Input;
 
+public class CookieDemon extends Character{
+    Input i = new Input();
     public CookieDemon(String name, int hp, int attack){
         super.setName(name);
         super.setHp(hp);
@@ -13,10 +15,10 @@ public class CookieDemon extends Character{
         if(cookie > 0){
             hp = getHp() + cookie;
             setHp(hp);
-            System.out.println("The Cookie Demon stole " + cookie + " cookies from you and ate them...how rude! Cookie Demon restored: " + cookie + " hp!");
+            i.print("The Cookie Demon stole " + cookie + " cookies from you and ate them...how rude! Cookie Demon restored: " + cookie + " hp!");
         }
         else{
-            System.out.println("The Cookie Demon tries to snatch cookies from your bag but upon seeing your bag empty he laughs at how poor you are...you cry in sadness");
+            i.print("The Cookie Demon tries to snatch cookies from your bag but upon seeing your bag empty he laughs at how poor you are...you cry in sadness");
         }
     }
 /////////////////////////////////////////////////////////////////////////////
@@ -24,10 +26,10 @@ public class CookieDemon extends Character{
         int cookieAttack;
         if(cookie > 0){
             cookieAttack = getAttack() + cookie;
-            System.out.println("The Demon magically took cookies out of your bag and tossed them at your face!!! you took: " + cookieAttack + " damage!");
+            i.print("The Demon magically took cookies out of your bag and tossed them at your face!!! you took: " + cookieAttack + " damage!");
             return cookieAttack;
         }
-        System.out.println("The Cookie Demon tries to snatch cookies from your bag but its empty. He sighs in disappointment, you felt mentally hurt by this, you took: " + getAttack() + " damage!");
+        i.print("The Cookie Demon tries to snatch cookies from your bag but its empty. He sighs in disappointment, you felt mentally hurt by this, you took: " + getAttack() + " damage!");
         return getAttack();
     }
     ////////////////////////////////////////////////

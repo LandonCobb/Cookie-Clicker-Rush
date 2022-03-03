@@ -17,7 +17,12 @@ public class Player extends Character{
     }
 
     public void setScore(int score) {
-        this.score = score;
+        if(score < 0){
+            this.score = 0;
+        }
+        else{
+            this.score = score;
+        }
     }
     ///////////////////////////////////////////
     @Override
