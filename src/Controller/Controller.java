@@ -1,5 +1,21 @@
 package Controller;
 
 public class Controller {
-    //cookie clicker
+
+    public void start(){
+
+    }
+
+    public void mainMenu(){
+
+    }
+
+    public void shopMenu(){
+
+    }
+
+    public void click(){
+
+    }
+
 }
