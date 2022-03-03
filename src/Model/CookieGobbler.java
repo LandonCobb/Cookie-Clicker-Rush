@@ -13,11 +13,12 @@ public class CookieGobbler extends Character{
     }
     ///////////////////////////////////////////////////////////
     public void heal(int cookie){
-        //heals the boss but can only be used a certain amount of times, the boss finds cookies on the ground and eats them maybe put in controller?
+        //heals the boss but can only be used a certain amount of times
         if(healCounter <= 3){
             int hp = getHp() + cookie;
             setHp(hp);
-            System.out.println("the Horrible monster found " + cookie + " running about and ate them " + getName() + "healed for:" + cookie); //need in view to do system.out
+            healCounter++;
+            System.out.println("the Horrible monster found " + cookie + " cookies running about and ate them! " + getName() + "healed for:" + cookie); //need in view to do system.out
         }
         if(cookie == 0){
             System.out.println("the monster tried to grab a lone cookie to eat but it was to fast for him");
@@ -30,10 +31,10 @@ public class CookieGobbler extends Character{
     @Override
     public void setHp(int hp) {
         if(hp > 100){
-            super.setHp(100);
+            this.hp = 100;
         }
         else{
-            super.setHp(hp);
+            this.hp = hp;
         }
     }
     //////////////////////////////////////////////////////////

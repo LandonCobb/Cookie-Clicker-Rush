@@ -1,7 +1,7 @@
 package Model;
 
 public  abstract class Character {
-    private int hp;
+    public int hp;
     private int attack;
     private String name;
     ///////////////////////////////////////////////////
