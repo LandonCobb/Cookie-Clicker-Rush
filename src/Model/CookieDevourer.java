@@ -16,7 +16,7 @@ public class CookieDevourer extends Character{
     //this will stack the attack multiple times and hit the player
     public int barrage(){
         Random ran = new Random();
-        int loop = ran.nextInt(4);
+        int loop = ran.nextInt(4) + 1;
         int lastAttack = 0;
         while(loop > 0){
             lastAttack = lastAttack + getAttack();

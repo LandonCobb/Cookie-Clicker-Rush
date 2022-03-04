@@ -1,10 +1,10 @@
 package Controller;
 
-import Model.Click;
-import Model.Player;
+import Model.*;
 import View.Input;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Controller {
     private Input i = new Input();
@@ -12,6 +12,7 @@ public class Controller {
     private Click c = new Click();
     private ArrayList<Multiplier> multipliers = new ArrayList<>();
     private int counter = 0;
+    int bossCounter = 0;
 
     public void start(){
         Player p = new Player(i.getUserString("Enter your name"), 50, c.getClickValue());
@@ -100,5 +101,90 @@ public class Controller {
         } while (!done);
 
     }
+//////////////////////////////////////////////////////////////
+    public void bossFight1() {
+        CookieGobbler boss1 = new CookieGobbler("Cookie Gobbler", 100, 5);
+            i.print("You stumble upon one of the Demon Lords minions the Cookie Gobbler, you get ready for the fight of your life");
+            while (boss1.getHp() > 0) {
+                Random ran = new Random();
+                int num = ran.nextInt(10) + 1;
+                if (num < 8) {
+                    i.print("attack!");
+                    click(p.getHp());
+                    boss1.setHp(boss1.getHp() - c.getClickValue());
+                    i.print("You dealt" + c.getClickValue());
+                    i.print(boss1.getName() + " has " + boss1.getHp() + " hp");
+                    i.print("The Cookie Gobbler hit you for:" + boss1.getAttack());
+                    p.setHp(p.getHp() - boss1.getAttack());
+                }
+                if (num > 8) {
+                    boss1.heal(num * 4);
+                    i.print("Attack!");
+                    click(p.getHp());
+                    boss1.setHp(boss1.getHp() - c.getClickValue());
+                    i.print("You dealt: " + c.getClickValue() + " Damage");
+                }
+                i.print("You defeated the terrible cookie gobbler! You picked up " + 1000 + " cookies");
+                p.setScore(p.getScore() + 1000);
+                counter++;
+            }
+        }
+        /////////////////////////////////////////////////////////////
+        public void bossFight2(){
+        CookieDevourer boss2 = new CookieDevourer("Cookie Devourer", 200, 8);
+            i.print("You see a little bug crawling about and decided to follow it... " + "/n" + "it leads you into a cave where you see another minion The Cookie Devourer he leaps out at you and blocks the entrance theres no escape you get ready to fight");
+            while (boss2.getHp() > 0) {
+                Random ran = new Random();
+                int num = ran.nextInt(10) + 1;
+                if (num < 9) {
+                    i.print("Attack!");
+                    click(p.getHp());
+                    boss2.setHp(boss2.getHp() - c.getClickValue());
+                    i.print("you dealt: " + c.getClickValue() + " damage!");
+                    i.print(boss2.getName() + " has " + boss2.getHp() + " hp");
+                    i.print(boss2.getName() + " hit you for: " + boss2.getAttack() + " Damage!");
+                    p.setHp(p.getHp() - boss2.getAttack());
+                }
+                if (num > 9) {
+                    p.setHp(p.getHp() - boss2.barrage());
+                    i.print("You get up from the powerful attack, you strike at the " + boss2.getName());
+                    click(p.getHp());
+                    i.print("you dealt: " + c.getClickValue() + "Damage!");
+                    boss2.setHp(boss2.getHp() - c.getClickValue());
+                    i.print(boss2.getName() + " has " + boss2.getHp() + " hp");
+            }
+        }
+            i.print("you defeated the " + boss2.getName() + " you feel exhausted after the fight but you found + " + 3000 + " cookies lying on the ground, you take the spoils and get out of the cave");
+            p.setScore(p.getScore() + 3000);
+            counter++;
+            }
+            /////////////////////////////////////////////////////////////////////
+            public void bossFight3(){
+                i.print("You decide to head to the Cookie Demon in cookie capital the one who started this mess. " + "/n" + " You see him in the grand hall of the castle. You point your sword at him and say I Will slay you foul demon for corrupting this land. The fight begins");
+                        CookieDemon boss3 = new CookieDemon("Cookie Demon", 300, 10);
+                        while(boss3.getHp() > 0) {
+                            Random ran = new Random();
+                            int num = ran.nextInt(20) + 1;
+                            if (num < 15) {
+                                i.print("Attack!");
+                                click(p.getHp());
+                                boss3.setHp(boss3.getHp() - c.getClickValue());
+                                i.print("you dealt: " + c.getClickValue() + " damage!");
+                                i.print(boss3.getName() + " has " + boss3.getHp() + " hp");
+                                i.print(boss3.getName() + " hit you for: " + boss3.getAttack() + " Damage!");
+                                p.setHp(p.getHp() - boss3.getAttack());
 
-}
+                            }
+                            if(num >= 15 && num < 18){
+                                p.setScore(p.getScore() - (num * 2));
+                                boss3.cookieDrainHealth(num * 2);
+                            }
+                            if(num >= 18){
+                                p.setScore(p.getScore() - (num * 2));
+                                p.setHp(p.getHp() - boss3.cookieDrainAttack(num * 2));
+                            }
+                        }
+                        i.print("You defeated the Cookie Demon. You win!");
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        }
