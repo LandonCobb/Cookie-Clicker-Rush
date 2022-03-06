@@ -12,7 +12,7 @@ public class Controller {
     private Click c = new Click();
     private ArrayList<Multiplier> multipliers = new ArrayList<>();
     private int counter = 0;
-    int bossCounter = 0;
+    int bossCounter = 1;
 
     public void start(){
         p = new Player(i.getUserString("Enter your name"), 50, c.getClickValue());
@@ -81,7 +81,7 @@ public class Controller {
     public void click(int hp){
         boolean done = false;
         do {
-            i.clearScreen();
+            i.clearConsole();
             done = checkDeath();
             String check = i.getUserString("");
             if (check.isEmpty()){
@@ -97,8 +97,7 @@ public class Controller {
                 shopMenu();
             } else if (check.equalsIgnoreCase("e")){
                 done = true;
-            }
-            else if(check.equalsIgnoreCase("b")){
+            } else if(check.equalsIgnoreCase("b")){
                 selectBossFight();
             }
             i.print("\uD83C\uDF6A: " + p.getScore() + " HP: " + hp);
@@ -139,7 +138,7 @@ public class Controller {
                     i.print("You dealt: " + c.getClickValue() + " Damage");
                 }
                 i.print("You defeated the terrible cookie gobbler!");
-                counter++;
+                bossCounter++;
             }
         }
         /////////////////////////////////////////////////////////////
@@ -168,7 +167,7 @@ public class Controller {
             }
         }
             i.print("you defeated the " + boss2.getName() + "!");
-            counter++;
+            bossCounter++;
             }
             /////////////////////////////////////////////////////////////////////
             public void bossFight3(){

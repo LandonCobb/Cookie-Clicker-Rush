@@ -1,8 +1,10 @@
 package View;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.awt.event.KeyEvent;
 
 public class Input {
     BufferedReader bread = new BufferedReader(new InputStreamReader(System.in));
@@ -36,8 +38,21 @@ public class Input {
         }
     }
 
-    public void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+//    public void clearScreen() {
+//        System.out.print("\033[H\033[2J");
+//        System.out.flush();
+//    }
+public void clearConsole() {
+    try {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ALT);
+        robot.keyPress(KeyEvent.VK_SHIFT);
+        robot.keyPress(KeyEvent.VK_1);
+        robot.keyRelease(KeyEvent.VK_ALT);
+        robot.keyRelease(KeyEvent.VK_SHIFT);
+        robot.keyRelease(KeyEvent.VK_1);
+    } catch (AWTException ex) {
+        ex.printStackTrace(System.err);
     }
+}
 }
