@@ -81,8 +81,8 @@ public class Controller {
     public void click(int hp){
         boolean done = false;
         do {
-            i.clearScreen();
-            checkDeath();
+            i.clearConsole();
+            done = checkDeath();
             String check = i.getUserString("");
             if (check.isEmpty()){
                 if (multipliers == null){
@@ -97,8 +97,7 @@ public class Controller {
                 shopMenu();
             } else if (check.equalsIgnoreCase("e")){
                 done = true;
-            }
-            else if(check.equalsIgnoreCase("b")){
+            } else if(check.equalsIgnoreCase("b")){
                 selectBossFight();
             }
             i.print("\uD83C\uDF6A: " + p.getScore() + " HP: " + hp);
@@ -124,24 +123,22 @@ public class Controller {
                 int num = ran.nextInt(10) + 1;
                 if (num < 8) {
                     i.print("attack!");
-                    if (i.getUserString("").isEmpty()) {
-                        boss1.setHp(boss1.getHp() - c.getClickValue());
-                        i.print("You dealt " + c.getClickValue() + " damage");
-                        i.print(boss1.getName() + " has " + boss1.getHp() + " hp");
-                        i.print("The Cookie Gobbler hit you for:" + boss1.getAttack());
-                        p.setHp(p.getHp() - boss1.getAttack());
-                    }
+                    click(p.getHp());
+                    boss1.setHp(boss1.getHp() - c.getClickValue());
+                    i.print("You dealt" + c.getClickValue());
+                    i.print(boss1.getName() + " has " + boss1.getHp() + " hp");
+                    i.print("The Cookie Gobbler hit you for:" + boss1.getAttack());
+                    p.setHp(p.getHp() - boss1.getAttack());
                 }
                 if (num > 8) {
                     boss1.heal(num * 4);
                     i.print("Attack!");
-                    if (i.getUserString("").isEmpty()) {
-                        boss1.setHp(boss1.getHp() - c.getClickValue());
-                        i.print("You dealt: " + c.getClickValue() + " Damage");
-                    }
+                    click(p.getHp());
+                    boss1.setHp(boss1.getHp() - c.getClickValue());
+                    i.print("You dealt: " + c.getClickValue() + " Damage");
                 }
-                    i.print("You defeated the terrible cookie gobbler!");
-                    bossCounter++;
+                i.print("You defeated the terrible cookie gobbler!");
+                bossCounter++;
             }
         }
         /////////////////////////////////////////////////////////////
@@ -153,24 +150,22 @@ public class Controller {
                 int num = ran.nextInt(10) + 1;
                 if (num < 9) {
                     i.print("Attack!");
-                    if (i.getUserString("").isEmpty()) {
-                        boss2.setHp(boss2.getHp() - c.getClickValue());
-                        i.print("you dealt: " + c.getClickValue() + " damage!");
-                        i.print(boss2.getName() + " has " + boss2.getHp() + " hp");
-                        i.print(boss2.getName() + " hit you for: " + boss2.getAttack() + " Damage!");
-                        p.setHp(p.getHp() - boss2.getAttack());
-                    }
+                    click(p.getHp());
+                    boss2.setHp(boss2.getHp() - c.getClickValue());
+                    i.print("you dealt: " + c.getClickValue() + " damage!");
+                    i.print(boss2.getName() + " has " + boss2.getHp() + " hp");
+                    i.print(boss2.getName() + " hit you for: " + boss2.getAttack() + " Damage!");
+                    p.setHp(p.getHp() - boss2.getAttack());
                 }
                 if (num > 9) {
                     p.setHp(p.getHp() - boss2.barrage());
                     i.print("You get up from the powerful attack, you strike at the " + boss2.getName());
-                    if (i.getUserString("").isEmpty()) {
-                        i.print("you dealt: " + c.getClickValue() + "Damage!");
-                        boss2.setHp(boss2.getHp() - c.getClickValue());
-                        i.print(boss2.getName() + " has " + boss2.getHp() + " hp");
-                    }
-                }
-             }
+                    click(p.getHp());
+                    i.print("you dealt: " + c.getClickValue() + "Damage!");
+                    boss2.setHp(boss2.getHp() - c.getClickValue());
+                    i.print(boss2.getName() + " has " + boss2.getHp() + " hp");
+            }
+        }
             i.print("you defeated the " + boss2.getName() + "!");
             bossCounter++;
             }
@@ -183,14 +178,13 @@ public class Controller {
                             int num = ran.nextInt(20) + 1;
                             if (num < 15) {
                                 i.print("Attack!");
-                                if (i.getUserString("").isEmpty()) {
-                                    boss3.setHp(boss3.getHp() - c.getClickValue());
-                                    i.print("you dealt: " + c.getClickValue() + " damage!");
-                                    i.print(boss3.getName() + " has " + boss3.getHp() + " hp");
-                                    i.print(boss3.getName() + " hit you for: " + boss3.getAttack() + " Damage!");
-                                    p.setHp(p.getHp() - boss3.getAttack());
+                                click(p.getHp());
+                                boss3.setHp(boss3.getHp() - c.getClickValue());
+                                i.print("you dealt: " + c.getClickValue() + " damage!");
+                                i.print(boss3.getName() + " has " + boss3.getHp() + " hp");
+                                i.print(boss3.getName() + " hit you for: " + boss3.getAttack() + " Damage!");
+                                p.setHp(p.getHp() - boss3.getAttack());
 
-                                }
                             }
                             if(num >= 15 && num < 18){
                                 p.setScore(p.getScore() - (num * 2));
