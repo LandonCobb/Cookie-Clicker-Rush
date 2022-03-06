@@ -82,7 +82,7 @@ public class Controller {
         boolean done = false;
         do {
             i.clearScreen();
-            checkDeath();
+            done = checkDeath();
             String check = i.getUserString("");
             if (check.isEmpty()){
                 if (multipliers == null){
