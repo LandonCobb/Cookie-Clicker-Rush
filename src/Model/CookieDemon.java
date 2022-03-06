@@ -36,8 +36,8 @@ public class CookieDemon extends Character{
     //need to change variables
     @Override
     public void setHp(int hp){
-        if(hp > 100){
-            this.hp = 100;
+        if(hp > 300){
+            this.hp = 300;
         }
         else{
             this.hp = hp;
