@@ -33,8 +33,8 @@ public class CookieGobbler extends Character{
     ////////////////////////////////////////////////////////////
     @Override
     public void setHp(int hp) {
-        if(hp > 100){
-            this.hp = 100;
+        if(hp > 200){
+            this.hp = 200;
         }
         else{
             this.hp = hp;

@@ -126,7 +126,7 @@ public class Controller {
                     i.print("attack!");
                     if (i.getUserString("").isEmpty()) {
                         boss1.setHp(boss1.getHp() - c.getClickValue());
-                        i.print("You dealt" + c.getClickValue());
+                        i.print("You dealt " + c.getClickValue() + " damage");
                         i.print(boss1.getName() + " has " + boss1.getHp() + " hp");
                         i.print("The Cookie Gobbler hit you for:" + boss1.getAttack());
                         p.setHp(p.getHp() - boss1.getAttack());
@@ -136,7 +136,6 @@ public class Controller {
                     boss1.heal(num * 4);
                     i.print("Attack!");
                     if (i.getUserString("").isEmpty()) {
-                        click(p.getHp());
                         boss1.setHp(boss1.getHp() - c.getClickValue());
                         i.print("You dealt: " + c.getClickValue() + " Damage");
                     }
@@ -171,7 +170,7 @@ public class Controller {
                         i.print(boss2.getName() + " has " + boss2.getHp() + " hp");
                     }
                 }
-        }
+             }
             i.print("you defeated the " + boss2.getName() + "!");
             bossCounter++;
             }
