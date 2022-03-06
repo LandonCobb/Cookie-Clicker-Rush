@@ -15,7 +15,7 @@ public class Controller {
     int bossCounter = 0;
 
     public void start(){
-        Player p = new Player(i.getUserString("Enter your name"), 50, c.getClickValue());
+        p = new Player(i.getUserString("Enter your name"), 50, c.getClickValue());
         boolean done = false;
         do {
             switch (mainMenu()) {
@@ -99,7 +99,6 @@ public class Controller {
             }
             i.print("\uD83C\uDF6A: " + p.getScore() + " HP: " + hp);
         } while (!done);
-
     }
 //////////////////////////////////////////////////////////////
     public void bossFight1() {
