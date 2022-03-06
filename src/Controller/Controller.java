@@ -81,6 +81,8 @@ public class Controller {
         boolean done = false;
         do {
             i.clearScreen();
+            selectBossFight();
+            checkDeath();
             String check = i.getUserString("");
             if (check.isEmpty()){
                 if (multipliers == null){
@@ -97,7 +99,6 @@ public class Controller {
                 done = true;
             }
             i.print("\uD83C\uDF6A: " + p.getScore() + " HP: " + hp);
-            selectBossFight();
         } while (!done);
     }
     public void selectBossFight(){
@@ -193,4 +194,9 @@ public class Controller {
                         i.print("You defeated the Cookie Demon. You win!");
             }
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            public boolean checkDeath(){
+                return p.getHp() <= 0;
+            }
         }
+
