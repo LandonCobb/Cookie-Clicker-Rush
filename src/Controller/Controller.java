@@ -14,7 +14,7 @@ public class Controller {
     private int counter = 0;
 
     public void start(){
-        Player p = new Player(i.getUserString("Enter your name"), 50, c.getClickValue());
+        p = new Player(i.getUserString("Enter your name"), 50, c.getClickValue());
         boolean done = false;
         do {
             switch (mainMenu()) {
@@ -81,6 +81,8 @@ public class Controller {
         boolean done = false;
         do {
             i.clearScreen();
+            selectBossFight();
+            checkDeath();
             String check = i.getUserString("");
             if (check.isEmpty()){
                 if (multipliers == null){
@@ -97,9 +99,7 @@ public class Controller {
                 done = true;
             }
             i.print("\uD83C\uDF6A: " + p.getScore() + " HP: " + hp);
-            selectBossFight();
         } while (!done);
-
     }
     public void selectBossFight(){
         if(p.getScore() == 150){
@@ -194,4 +194,9 @@ public class Controller {
                         i.print("You defeated the Cookie Demon. You win!");
             }
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            public boolean checkDeath(){
+                return p.getHp() <= 0;
+            }
         }
+
