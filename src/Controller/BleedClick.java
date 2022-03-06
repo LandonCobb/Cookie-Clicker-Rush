@@ -13,8 +13,8 @@ public class BleedClick extends Multiplier{
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                player.setScore(player.getScore() + c.getClickValue());
+                player.setScore(player.getScore() + 5);
             }
-        }, 0, 1000);
+        }, 0, 500);
     }
 }
