@@ -12,7 +12,6 @@ public class Controller {
     private Click c = new Click();
     private ArrayList<Multiplier> multipliers = new ArrayList<>();
     private int counter = 0;
-    int bossCounter = 0;
 
     public void start(){
         p = new Player(i.getUserString("Enter your name"), 50, c.getClickValue());
@@ -98,7 +97,19 @@ public class Controller {
                 done = true;
             }
             i.print("\uD83C\uDF6A: " + p.getScore() + " HP: " + hp);
+            selectBossFight();
         } while (!done);
+    }
+    public void selectBossFight(){
+        if(p.getScore() == 150){
+            bossFight1();
+        }
+        if(p.getScore() == 300){
+            bossFight2();
+        }
+        if(p.getScore() == 750){
+            bossFight3();
+        }
     }
 //////////////////////////////////////////////////////////////
     public void bossFight1() {
@@ -123,9 +134,7 @@ public class Controller {
                     boss1.setHp(boss1.getHp() - c.getClickValue());
                     i.print("You dealt: " + c.getClickValue() + " Damage");
                 }
-                i.print("You defeated the terrible cookie gobbler! You picked up " + 1000 + " cookies");
-                p.setScore(p.getScore() + 1000);
-                counter++;
+                i.print("You defeated the terrible cookie gobbler!");
             }
         }
         /////////////////////////////////////////////////////////////
@@ -153,9 +162,7 @@ public class Controller {
                     i.print(boss2.getName() + " has " + boss2.getHp() + " hp");
             }
         }
-            i.print("you defeated the " + boss2.getName() + " you feel exhausted after the fight but you found + " + 3000 + " cookies lying on the ground, you take the spoils and get out of the cave");
-            p.setScore(p.getScore() + 3000);
-            counter++;
+            i.print("you defeated the " + boss2.getName() + "!");
             }
             /////////////////////////////////////////////////////////////////////
             public void bossFight3(){
