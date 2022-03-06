@@ -82,7 +82,7 @@ public class Controller {
         do {
             i.clearScreen();
             selectBossFight();
-            checkDeath();
+            done  = checkDeath();
             String check = i.getUserString("");
             if (check.isEmpty()){
                 if (multipliers == null){
