@@ -81,7 +81,6 @@ public class Controller {
         boolean done = false;
         do {
             i.clearScreen();
-            selectBossFight();
             done  = checkDeath();
             String check = i.getUserString("");
             if (check.isEmpty()){
