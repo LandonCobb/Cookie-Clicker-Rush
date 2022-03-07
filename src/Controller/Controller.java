@@ -200,7 +200,15 @@ public class Controller {
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             public boolean checkDeath(){
-                return p.getHp() <= 0;
-            }
+                if (p.getHp() <= 0){
+                    if (i.getUserInt("Game over.\n" + "[1]Exit") == 1){
+                        return true;
+                    } else {
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
+                }
         }
 
