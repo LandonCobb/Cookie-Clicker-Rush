@@ -19,11 +19,8 @@ public class Controller {
         boolean done = false;
         do {
             switch (mainMenu()) {
-                case 1:
-                    click(p.getHp());
-                case 2:
-                    done = true;
-                    break;
+                case 1 -> click(p.getHp());
+                case 2 -> done = true;
             }
         } while(!done);
 
@@ -154,6 +151,8 @@ public class Controller {
             if(boss1.getHp() <= 0){
                 i.print("You defeated the terrible cookie gobbler!");
             }
+        i.print("You defeated the terrible cookie gobbler!");
+            p.setHp(100);
         }
         /////////////////////////////////////////////////////////////
         public void bossFight2(){
@@ -192,6 +191,8 @@ public class Controller {
             }
             if (boss2.getHp() <= 0) {
                 i.print("you defeated the " + boss2.getName() + "!");
+            i.print("you defeated the " + boss2.getName() + "!");
+            p.setHp(100);
             }
             }
             /////////////////////////////////////////////////////////////////////
