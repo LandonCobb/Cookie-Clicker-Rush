@@ -149,6 +149,7 @@ public class Controller {
                     }
             }
         i.print("You defeated the terrible cookie gobbler!");
+            p.setHp(100);
         }
         /////////////////////////////////////////////////////////////
         public void bossFight2(){
@@ -186,6 +187,7 @@ public class Controller {
                 }
             }
             i.print("you defeated the " + boss2.getName() + "!");
+            p.setHp(100);
             }
             /////////////////////////////////////////////////////////////////////
             public void bossFight3(){
