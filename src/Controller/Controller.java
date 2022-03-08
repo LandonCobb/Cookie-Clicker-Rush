@@ -19,8 +19,11 @@ public class Controller {
         boolean done = false;
         do {
             switch (mainMenu()) {
-                case 1 -> click(p.getHp());
-                case 2 -> done = true;
+                case 1:
+                    click(p.getHp());
+                case 2:
+                    done = true;
+                    break;
             }
         } while(!done);
 
@@ -146,9 +149,11 @@ public class Controller {
                             boss1.setHp(boss1.getHp() - c.getClickValue());
                             i.print("You dealt: " + c.getClickValue() + " Damage");
                         }
-                    }
+                }
             }
-        i.print("You defeated the terrible cookie gobbler!");
+            if(boss1.getHp() <= 0){
+                i.print("You defeated the terrible cookie gobbler!");
+            }
         }
         /////////////////////////////////////////////////////////////
         public void bossFight2(){
@@ -185,7 +190,9 @@ public class Controller {
                     }
                 }
             }
-            i.print("you defeated the " + boss2.getName() + "!");
+            if (boss2.getHp() <= 0) {
+                i.print("you defeated the " + boss2.getName() + "!");
+            }
             }
             /////////////////////////////////////////////////////////////////////
             public void bossFight3(){
@@ -219,7 +226,9 @@ public class Controller {
                                 i.print(p.getName() + " has HP:"+ p.getHp());
                             }
                         }
-                        i.print("You defeated the Cookie Demon. You win!");
+                        if (boss3.getHp() <= 0) {
+                            i.print("You defeated the Cookie Demon. You win!");
+                        }
             }
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
