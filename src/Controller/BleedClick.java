@@ -5,7 +5,7 @@ import Model.Player;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class BleedClick extends Multiplier{
+public class BleedClick extends Multiplier {
     Player player = new Player();
     @Override
     void multiplier(Click c) {
@@ -13,6 +13,7 @@ public class BleedClick extends Multiplier{
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                if(player.getHp() <= 0) timer.cancel();
                 player.setScore(player.getScore() + 5);
             }
         }, 0, 500);
