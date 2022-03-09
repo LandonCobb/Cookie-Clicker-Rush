@@ -213,7 +213,7 @@ public class Controller {
     }
         /////////////////////////////////////////////////////////////////////
         public Object bossFight3 (Callback cb) {
-            i.print("You decide to head to the Cookie Demon in cookie capital the one who started this mess. " + "/n" + " You see him in the grand hall of the castle. You point your sword at him and say I Will slay you foul demon for corrupting this land. The fight begins");
+            i.print("You decide to head to the Cookie Demon in cookie capital the one who started this mess. " + "\n" + " You see him in the grand hall of the castle. You point your sword at him and say I Will slay you foul demon for corrupting this land. The fight begins");
             CookieDemon boss3 = new CookieDemon("Cookie Demon", 120, 5);
             while (boss3.getHp() > 0) {
                 if (p.getHp() <= 0) {
