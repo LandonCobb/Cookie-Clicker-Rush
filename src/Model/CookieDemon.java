@@ -11,6 +11,8 @@ public class CookieDemon extends Character{
         super.setHp(hp);
         super.setAttack(attack);
     }
+
+    public CookieDemon(){}
     //////////////////////////////////////////////////
     public void cookieDrainHealth(int cookie){
         int hp;
