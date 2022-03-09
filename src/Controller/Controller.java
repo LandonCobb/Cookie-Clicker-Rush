@@ -208,7 +208,7 @@ public class Controller {
                 }
         }
         i.print("you defeated the " + boss2.getName() + "!");
-        p.setHp(100);
+        p.setHp(200);
         return null;
     }
         /////////////////////////////////////////////////////////////////////
